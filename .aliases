@@ -1,0 +1,39 @@
+# General shortcuts
+alias cls='clear'
+alias du='du -h'
+alias cp='rsync --progress -ah'
+alias ll='ls -la'
+alias sha1=shasum
+
+# Git
+alias gs='git status'
+alias gaa='git add --all'
+
+#Navigation shortcuts
+alias ..="cd .."
+alias d="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias dev="cd ~/Developer"
+
+# Useful stuff
+alias myip='ifconfig | grep broadcast | awk -F " " '"'"'{print $2}'"'"
+alias sedrecurse='find . -type f -print | xargs sed -i ""'
+alias pathlist='echo $PATH | sed -e "s/:/\n/g"'
+alias caskupdate='curl -s https://gist.githubusercontent.com/atais/9c72e469b1cbec35c7c430ce03de2a6b/raw/1b7b891e6eff3b42edb4ada219764f12aefb04ca/cask_upgrade.sh | bash /dev/stdin'
+alias update='brew update; brew upgrade --all;'
+alias updatecask='curl -s https://gist.githubusercontent.com/atais/9c72e469b1cbec35c7c430ce03de2a6b/raw/1b7b891e6eff3b42edb4ada219764f12aefb04ca/cask_upgrade.sh | bash /dev/stdin'
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+
+# Random bits
+alias stfu="osascript -e 'set volume output muted true'"
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Web-dev related stuff
+alias serve='python -m SimpleHTTPServer &'
+
+# Maven
+alias checkerrors='mvn checkstyle:check | grep -v "warning"'
+
+# Source control
+alias master='git checkout master'

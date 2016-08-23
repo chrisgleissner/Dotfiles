@@ -1,0 +1,5 @@
+# Make vim the default editor.
+export EDITOR='vim';
+
+# Put casks in /Applications
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
