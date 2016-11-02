@@ -1,11 +1,13 @@
+#Open current branch in JIRA
+function gitjira() {
+    local branchName=$(git rev-parse --abbrev-ref HEAD);
+    local jira_ticket=$(grep -Po "HCR-\d+" <<< "${branchName}");
+    jira "${jira_ticket}";
+}
+
 #Barebones maven build options
 function mvn_module() {
     mvn package -pl $1 -am -offline
-}
-
-#For converting totally legit media files
-function conv2mp4() {
-	ffmpeg -i "$1" -acodec aac -strict experimental -b:a 128k -vcodec mpeg4 -b:v 1200k -flags +aic+mv4 "$2"
 }
 
 # Simple calculator
@@ -33,15 +35,6 @@ function weather() {
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$_";
-}
-
-function firefox() {
-	open -a '/Applications/Firefox.app' $1
-}
-
-# Change working directory to the top-most Finder window location
-function cdf() { # short for `cdfinder`
-	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
